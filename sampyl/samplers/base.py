@@ -120,7 +120,7 @@ class Sampler(object):
             try:
                 samples[i] = next(self.sampler).tovector()
             except ValueError:
-                samples[i][0] = next(self.sampler).tovector()					
+                samples[i] = tuple(next(self.sampler).values())
 
             if progress_bar and time.time() - start_time > 1:
                 update_progress(i+1, num)
